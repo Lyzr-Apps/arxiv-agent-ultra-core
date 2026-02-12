@@ -1,0 +1,56 @@
+{
+  "agents": [
+    {
+      "name": "Research Digest Agent",
+      "agent_id": "698e0f28a96cf8dd37d6a829",
+      "description": "Fetches ArXiv papers from the last 24 hours, analyzes their abstracts to identify the most significant research, ranks them by impact and novelty, generates a comprehensive summary digest, and sends it via email",
+      "agent_type": "json",
+      "response_schema_file": "response_schemas/research_digest_agent_response.json"
+    }
+  ],
+  "schedules": [
+    {
+      "schedule_id": "698e0f2debe6fd87d1dcc1c0",
+      "agent_id": "698e0f28a96cf8dd37d6a829",
+      "agent_name": "Research Digest Agent",
+      "cron_expression": "45 17 * * *",
+      "timezone": "Asia/Kolkata",
+      "description": "Daily at 11:15 PM IST",
+      "message": "Generate and send daily ArXiv research digest for papers published in the last 24 hours",
+      "is_active": true,
+      "next_run_time": "2026-02-13T17:45:00+05:30"
+    }
+  ],
+  "workflow": {
+    "nodes": [
+      {
+        "id": "scheduler_input",
+        "type": "Input",
+        "label": "Daily Scheduler Trigger",
+        "nodeCategory": "input"
+      },
+      {
+        "id": "research_digest_agent",
+        "type": "Agent",
+        "label": "Research Digest Agent",
+        "nodeCategory": "agent"
+      },
+      {
+        "id": "email_output",
+        "type": "Output",
+        "label": "Email Sent",
+        "nodeCategory": "end"
+      }
+    ],
+    "edges": [
+      {
+        "source": "scheduler_input",
+        "target": "research_digest_agent"
+      },
+      {
+        "source": "research_digest_agent",
+        "target": "email_output"
+      }
+    ]
+  }
+}

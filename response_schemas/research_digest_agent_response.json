@@ -1,0 +1,46 @@
+{
+  "agent_name": "Research Digest Agent",
+  "agent_id": "698e0f28a96cf8dd37d6a829",
+  "description": "Fetches ArXiv papers from the last 24 hours, analyzes their abstracts to identify the most significant research, ranks them by impact and novelty, generates a comprehensive summary digest, and sends it via email",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "result": {
+      "papers_analyzed": "number",
+      "papers_included": "number",
+      "top_papers": [
+        {
+          "arxiv_id": "string",
+          "title": "string",
+          "authors": "string",
+          "summary": "string",
+          "significance": "string",
+          "category": "string"
+        }
+      ],
+      "digest_sent": "boolean",
+      "recipient_email": "string",
+      "execution_time": "string"
+    }
+  },
+  "example_response": {
+    "result": {
+      "papers_analyzed": 0,
+      "papers_included": 0,
+      "top_papers": [
+        {
+          "arxiv_id": "ArXiv paper ID",
+          "title": "Paper title",
+          "authors": "Paper authors",
+          "summary": "One-paragraph summary of key findings",
+          "significance": "Why this research matters",
+          "category": "Research category"
+        }
+      ],
+      "digest_sent": false,
+      "recipient_email": "Email address where digest was sent",
+      "execution_time": "ISO timestamp of when digest was generated"
+    }
+  }
+}
