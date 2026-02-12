@@ -10,15 +10,15 @@
   ],
   "schedules": [
     {
-      "schedule_id": "698e0f2debe6fd87d1dcc1c0",
+      "schedule_id": "698e1ed3ebe6fd87d1dcc1d6",
       "agent_id": "698e0f28a96cf8dd37d6a829",
       "agent_name": "Research Digest Agent",
-      "cron_expression": "45 17 * * *",
+      "cron_expression": "50 18 * * *",
       "timezone": "Asia/Kolkata",
-      "description": "Daily at 11:15 PM IST",
+      "description": "Daily at 12:20 AM IST",
       "message": "Generate and send daily ArXiv research digest for papers published in the last 24 hours",
       "is_active": true,
-      "next_run_time": "2026-02-13T17:45:00+05:30"
+      "next_run_time": "2026-02-13T00:20:00+05:30"
     }
   ],
   "workflow": {

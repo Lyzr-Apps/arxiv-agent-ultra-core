@@ -44,7 +44,7 @@ const THEME_VARS = {
 } as React.CSSProperties
 
 const AGENT_ID = '698e0f28a96cf8dd37d6a829'
-const SCHEDULE_ID = '698e0f2debe6fd87d1dcc1c0'
+const SCHEDULE_ID = '698e1ed3ebe6fd87d1dcc1d6'
 
 const ARXIV_CATEGORIES = [
   { value: 'cs.AI', label: 'Artificial Intelligence' },
@@ -154,7 +154,7 @@ function Sidebar({ activeScreen, onNavigate }: { activeScreen: string; onNavigat
       <div className="p-4 border-t border-[hsl(var(--sidebar-border))]">
         <div className="px-3 py-2 rounded-lg bg-[hsl(var(--sidebar-accent))]">
           <p className="text-xs text-[hsl(var(--muted-foreground))] mb-1">Scheduled Run</p>
-          <p className="text-sm font-medium text-[hsl(var(--sidebar-foreground))]">Daily at 11:15 PM IST</p>
+          <p className="text-sm font-medium text-[hsl(var(--sidebar-foreground))]">Daily at 12:20 AM IST</p>
         </div>
       </div>
     </div>
@@ -421,7 +421,7 @@ function DashboardScreen({
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">Scheduled Time</span>
-                  <span className="text-sm font-medium text-foreground">11:15 PM IST</span>
+                  <span className="text-sm font-medium text-foreground">12:20 AM IST</span>
                 </div>
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-muted-foreground">Frequency</span>
