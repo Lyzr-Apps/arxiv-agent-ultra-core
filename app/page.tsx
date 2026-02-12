@@ -11,7 +11,7 @@ import { Separator } from '@/components/ui/separator'
 import { Slider } from '@/components/ui/slider'
 import { Switch } from '@/components/ui/switch'
 import { callAIAgent } from '@/lib/aiAgent'
-import { getSchedule, pauseSchedule, resumeSchedule, getScheduleHistory, cronToHuman } from '@/lib/scheduler'
+import { getSchedule, pauseSchedule, resumeSchedule, getScheduleLogs, cronToHuman } from '@/lib/scheduler'
 import { FiHome, FiSettings, FiClock, FiPlay, FiPause, FiCalendar, FiMail, FiBookOpen, FiChevronDown, FiChevronUp, FiCheckCircle, FiAlertCircle, FiLoader } from 'react-icons/fi'
 import { Loader2 } from 'lucide-react'
 
@@ -227,9 +227,9 @@ function DashboardScreen({
       if (schedule) {
         setScheduleData(schedule)
       }
-      const history = await getScheduleHistory(SCHEDULE_ID)
-      if (Array.isArray(history)) {
-        setScheduleHistory(history.slice(0, 5))
+      const historyResult = await getScheduleLogs(SCHEDULE_ID, { limit: 5 })
+      if (historyResult.success && Array.isArray(historyResult.executions)) {
+        setScheduleHistory(historyResult.executions)
       }
     } catch (err) {
       console.error('Error loading schedule:', err)
